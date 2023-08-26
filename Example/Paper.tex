@@ -1,0 +1,200 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% File:    Paper.tex based on IEEEtran.bst y IEEEtran.cls          %
+% Date     1/21/2020                                               %
+% Version: Paper.tex                                               %
+% Autor:   Michael Shell                                           %
+% Modificated: Ing. Sergio Arriola-Valverde. M.Sc                  %
+% paper template for courses                                       %
+%******************************************************************%
+
+\documentclass[conference]{IEEEtran}
+\usepackage{cite}
+
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages used
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage[hidelinks,bookmarks=false]{hyperref}
+\usepackage{scalerel}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usetikzlibrary{svg.path}
+\usepackage{gnuplottex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ORCID logo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{orcidlogocol}{HTML}{A6CE39}
+\tikzset{
+  orcidlogo/.pic={
+    \fill[orcidlogocol] svg{M256,128c0,70.7-57.3,128-128,128C57.3,256,0,198.7,0,128C0,57.3,57.3,0,128,0C198.7,0,256,57.3,256,128z};
+    \fill[white] svg{M86.3,186.2H70.9V79.1h15.4v48.4V186.2z}
+                 svg{M108.9,79.1h41.6c39.6,0,57,28.3,57,53.6c0,27.5-21.5,53.6-56.8,53.6h-41.8V79.1z M124.3,172.4h24.5c34.9,0,42.9-26.5,42.9-39.7c0-21.5-13.7-39.7-43.7-39.7h-23.7V172.4z}
+                 svg{M88.7,56.8c0,5.5-4.5,10.1-10.1,10.1c-5.6,0-10.1-4.6-10.1-10.1c0-5.6,4.5-10.1,10.1-10.1C84.2,46.7,88.7,51.3,88.7,56.8z};
+  }
+}
+
+\newcommand\orcidicon[1]{\href{https://orcid.org/#1}{\mbox{\scalerel*{
+\begin{tikzpicture}[yscale=-1,transform shape]
+\pic{orcidlogo};
+\end{tikzpicture}
+}{|}}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Rename Keywords name from Palabras Clave
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\IEEEkeywordsname{Palabras Clave}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\title{Análisis de Espectro FM y AM utilizando un analizador de espectros digital Agilent 8600}
+
+\author{\IEEEauthorblockN{George Sigmon Ohm\orcidicon{}\IEEEauthorrefmark{1},
+Juan Pérez-Alvarado\IEEEauthorrefmark{1}, 
+Andre Marie Ampere\IEEEauthorrefmark{1} y
+Ernest Rutherford\IEEEauthorrefmark{1}}
+\vspace{2mm}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}Escuela de Ingeniería Electrónica,
+Instituto Tecnológico de Costa Rica (ITCR), 30101 Cartago, Costa Rica, \\ \{gsohm, jperez, amampere, erutherford\}@gmail.com}}
+
+% make the title area
+\maketitle
+
+\begin{abstract}
+En este apartado se resume en cortas palabras de que tratará el informe en términos de metodologías, análisis y resultados importante logrados durante la práctica dirigida. Es importante tomar en cuenta que esta sección deberá tener una extensión entre 100 a 250 palabras como máximo y nunca se utilizarán referencias bibliográficas de ningún tipo. La coherencia y sentido lógico de la redacción es importante para lograr una buena transmisión de las ideas a la hora de redactar documentos con poca extensión y gran volumen de datos y resultados.\\
+%\vspace{1mm}
+\end{abstract}
+\begin{IEEEkeywords}
+Se recomienda que sean entre 4 a 5 palabras claves como máximo, estas palabras sirven para agilizar los buscadores cuando se necesitan hacer consultas de temas muy específicos. Una selección adecuada de palabras clave permitirá que otras persona puedan encontrar su articulo o informe.
+\end{IEEEkeywords}
+
+\IEEEpeerreviewmaketitle
+
+\section{Introducción}
+
+La introducción de un artículo científico u informe, es una de las partes más importantes debido a que es en dicha parte donde el lector se informará de que trata lo que leerá, es por ello que la organización de las ideas y redacción son importantes. Para la redacción de esta sección, es necesario tomar en cuenta que las ideas deberán ser concisas y directas, es por ello que la redundancia de ideas debe ser eliminado como de lugar. 
+
+No obstante es acostumbrado en informe técnicos o de laboratorio discutir los alcances u objetivos del experimento o práctica guiada en prosa, nunca se deberán redactar los pasos de medición ni dar explicaciones de como obtener los resultados, y ni muchos utilizar frases genéricas o cualitativas ``valores muy altos'', ``interfaces amigables'', ``los resultados son parecidos'', ``nosotros medimos y vimos que no eran iguales'', entre otros.
+
+Finalmente recuerde concluir sus ideas y dar a entender por qué lo que se presentará es relevante, la extensión de este apartado puede ser de una columna únicamente no es necesario exceder dicha extensión. Para una mejor compresión u orientación se recomienda consultar la guía elaborada por el profesor Dr.-Ing. Pablo Alvarado-Moya si desea ver más detalle al respecto y cuestiones de redacción \underline{\url{http://www.ie.tec.ac.cr/palvarado/LabCE/lce_guia_informe.pdf}} \cite{Pablo2018}.
+
+\section{Metodología}
+Antes de iniciar con la explicación del proceso metodológico de medición, es necesario dar una introducción rápida de lo que se verá dentro de la sección, esto ayuda a orientar al lector. En relación a la extensión del párrafo introductorio, se recomienda de tres a cuatro líneas como máximo.
+
+La metodología de manera genérica pretende dar una explicación del procedimiento o métodos necesario para la obtención de resultados. Para el caso de un curso de ingeniería es prudente que se ahonde en detalles técnicos y matemáticos para dar explicación robusta y científica del proceso que se llevó acabo para la generación de resultados u observaciones.
+
+Es importante considerar nunca utilizar redacciones que sean como ``Encendimos el analizador y nosotros pusimos un RW de 1 kHz'', ``pusimos, vimos, tocamos las perillas'', o también ``después del paso anterior, vimos que no vimos nada y cambiamos las configuraciones'', entre otras. Las frases anteriores no son claras y además aportan una discusión lógica, concreta y concisa. 
+
+Para brindar un mejor entendimiento de las ideas, en veces es útil la ayuda de diagramas de alto nivel o de flujo que ayuden a entender como se llevó el proceso de medición. Recordar que la redacción sea en prosa y evitar usar viñeta para enumerar pasos o procedimientos, no es acostumbrado debido a que introduce ambigüedad al lector para entender lo que esta leyendo. En veces son utilizadas subsecciones las cuales muestran orden y es más fácil de granular los procedimientos u procesos de medición, eso sí no abuse de las mismas por que no se ve formal para presentación de un documento técnico.
+
+\section{Análisis de Resultados}
+La sección de análisis y conclusión de los resultados obtenidos según el proceso metodológico de medición serán de importancia para lograr conclusiones relevantes y acertadas, es por ello que la redacción y el tiempo verbal deberán ser importantes, es necesario tomar en cuenta que los resultados ya fueron generados, esto como recomendación para la selección del tiempo verbal de la prosa.
+
+Es recomendable por cada resultado mostrado discutir el mismo con fundamentos teóricos y lógicos, es por ello que es importante tomar tiempo y analizar los resultados, ideas sin respaldo teórico ni lógico no son bien vistas. Como apoyo para la discusión es indispensable usar gráficos, figuras, tablas y cuadros los cuales deben de tener conexión con la prosa y además bien legible, de otra forma si no son discutidos y mucho menos legibles no aportan nada al artículo u informe.
+
+Cuando se vayan a realizar comparaciones utilizar niveles de comparación cuantitativos y no cualitativos, esto hace referencia a lo siguiente:
+
+\textbf{``En relación a la figura 1 se ve que cae más brusco en comparación con la figura 2''}, la frase anterior no es clara, pero si se tomará la siguiente redacción es más clara \textbf{``Con base al espectro FM de la figura 1 se cuantificó un piso de ruido de -90 dBm, donde para una frecuencia de 500 kHz la potencia medida es de +5 dBm por encima del nivel de piso de ruido obtenido en la figura 2, es por ello que la desviación FM disminuye en al menos 2\% para los casos analizados.''}
+
+Debido a la naturaleza científico-técnica de los reportes es necesario tener en cuenta la notación de ingeniería adecuada, formato de parámetros y las unidades correctas, es por ello que a continuación se muestran los siguientes casos: $S11$ $\neq$ $S_{11}$, $db$ $\neq$ $dB$, $miliwatt$ $\neq$ $mW$, $microwatt$ $\neq$ $\mu W$, $w$ $\neq$ $\omega$, $kiloohm$ $\neq$ $k \Omega$, entre otras.
+
+En relación a la presentación de ecuaciones es necesario, redactar las ideas de tal manera que la ecuación este autocontenida en el texto y sea de fácil entendimiento para el lector. Para ello tome el siguiente ejemplo de ecuación:
+
+\textbf{``El nivel de detección mínimo (LOD) para un modelo de elevación digital esta descrito por (\ref{LOD})":}
+\begin{equation}
+    LOD=\delta (z) = \sqrt{(\delta (z)_{DEM_{t\_n}})^2 + (\delta (z)_{DEM_{t\_{n+1}}})^2}
+    \label{LOD}
+\end{equation}
+\textbf{donde $\delta (z)_{DEM_{t\_n}}$ y $\delta (z)_{DEM_{t\_{n+1}}}$ son los valores RMSE obtenidos en el eje $z$ de modelo de elevación digital.}
+
+En relación a las tablas o cuadros, es necesario resumir la información importante, esto con el objetivo de extraer algún comportamiento o tendencia de los datos, sin embargo es importante además utilizar técnicas de estadística descriptiva e inferencial en algunos casos para la discusión de los datos. Al momento de presentar los datos debe ser concisa la prosa y no redundar ni ahondar mucho en la idea. A continuación se muestra un ejemplo de como mostrar los resultados de un cuadro. \textbf{En el cuadro \ref{Noise} se resumen todos los datos experimentales obtenidos para el piso de ruido en dBm para un rango de frecuencias de 500 hasta 1000 kHz en incremento de 100 kHz respectivamente.}
+\begin{table}[!htb]
+\renewcommand{\arraystretch}{1.3}
+\caption{Tendencia del piso de ruido en función de la frecuencia}
+\label{Noise}
+\centering
+\begin{tabular}{c  c}
+\hline
+\begin{tabular}[|c||c|]{@{}c@{}}$\textbf{Frecuencia}$\\ \textbf{(kHz)} \end{tabular} & \begin{tabular}[|c||c|]{@{}c@{}}$\textbf{Piso de Ruido}$\\ \textbf{(dBm)}\end{tabular}  \\ 
+\hline
+500 & 1.2239 \\
+600 & 1.4576 \\
+700 & 1.9860 \\
+800 & 1.5680 \\
+900 & 1.2370 \\
+1000 & 1.5680 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[!ht]
+    \centering
+    \begin{gnuplot}[terminal=pdf,terminaloptions={font ",20" linewidth 3},scale=0.70]
+    set grid
+	set ylabel 'Amplitud (V)'
+	set xlabel 'Frecuencia rad/s'
+	plot sin(x), cos(x), tan(x)
+    \end{gnuplot}
+    \caption{Relación de tensión-corriente para una bobina, utilizando una señal senoidal con una frecuencia de $f$ = 1 GHz.}
+    \label{Methodolody}
+\end{figure}
+
+\section{Conclusiones}
+ En la sección de conclusiones, es importante responder de manera sistemática los objetivos de la práctica dirigida partiendo desde el general hasta los específicos en prosa nunca en viñetas, para este tipo de documentos como tal. Además de los objetivos, de los resultados experimentales obtenidos y analizados previamente se debe concluir aspectos relevantes que ayuden a dar solidez del artículo o informe, por lo general es necesario ver comparaciones importante a nivel cuantitativo y no cualitativo evitando frases genéricas. Finalmente resultados no obtenidos ni discutidos en el artículo e informe no deberán aparecer en las conclusiones debido a que no tiene sentido alguno discutir de algo que no se llevó acabo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography
+\bibliographystyle{IEEEtran}
+\bibliography{Paper}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+
